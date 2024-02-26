@@ -1,0 +1,314 @@
+/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+
+.page {
+    /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background: var(--backgroud-color);
+    font-family: "IBM Plex mono", monospace;
+    font-size: 18px;
+    color: var(--decorate-color);
+    background-image: var(--header-backdround);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@media (width > 767px) {
+    .page {
+        gap: 60px;
+    }
+}
+
+.header {
+    padding: var(--padding-size);
+    block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (width > 767px) {
+    .header {
+        padding-inline-start: 0;
+    }
+}
+
+.decorated-zone {
+    position: relative;
+}
+
+.decorated-zone::before {
+    content: ' ';
+    position: absolute;
+    inset-inline-end: var(--padding-size);
+    inset-block-start: var(--padding-size);
+    border-inline-end: 1px solid var(--decorate-color);
+    border-block-start: 1px solid var(--decorate-color);
+    inline-size: 25px;
+    block-size: 25px;
+}
+
+.decorated-zone::after {
+    content: ' ';
+    position: absolute;
+    inset-inline-start: var(--padding-size);
+    inset-block-end: var(--padding-size);
+    border-inline-start: 1px solid var(--decorate-color);
+    border-block-end: 1px solid var(--decorate-color);
+    inline-size: 25px;
+    block-size: 25px;
+}
+
+.header__rec {
+    display: var(--header-rec-display);
+    gap: 5px;
+    position: absolute;
+    inset-block-start: var(--padding-size);
+    inset-inline-end: var(--padding-size);
+    line-height: 25px;
+    text-transform: uppercase;
+}
+
+.header__rec::after {
+    content: ' ';
+    block-size: 9px;
+    inline-size: 9px;
+    margin: calc((25px - 9px) / 2);
+    background: var(--main-color);
+    border-radius: 9px;
+    box-shadow: 0 0 4px 2px var(--main-color);
+}
+
+.header__theme-menu {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex: 1 0 0;
+    inline-size: 100%;
+    block-size: fit-content;
+}
+
+@media (width > 1023px) {
+    .header__theme-menu {
+        justify-content: center;
+        align-items: flex-start;
+        padding-inline-start: var(--padding-size);
+    }
+}
+
+.header__theme-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    inline-size: fit-content;
+    block-size: fit-content;
+}
+
+@media (width > 1023px) {
+    .header__theme-menu-list {
+        flex-direction: row;
+    }
+}
+
+.header__theme-menu-item {
+    inline-size: fit-content;
+    block-size: fit-content;
+}
+
+.header__theme-menu-button {
+    position: relative;
+    appearance: none;
+    background: transparent;
+    text-transform: lowercase;
+    border: 0;
+    inline-size: 70px;
+}
+
+.header__theme-menu-button_active {
+    pointer-events: none;
+    outline: 1px solid var(--decorate-color);
+}
+
+.header__theme-menu-button:hover {
+    outline: 1px solid var(--decorate-color-hover);
+}
+
+.header__theme-menu-button:focus {
+    outline: none;
+}
+
+.header__theme-menu-button:focus-visible::after {
+    content: ' ';
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 1px;
+    background: var(--decorate-color);
+}
+
+.header__title {
+    font-size: var(--header-footer-title-size);
+    line-height: 82.5%;
+    color: var(--main-header-title-color);
+    text-shadow: 4px 4px 0 var(--main-color);
+    flex: 0 0 0;
+}
+
+.header__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: end;
+}
+
+@media (width > 767px) {
+    .header__description {
+        inline-size: calc(50% - 10px);
+    }
+}
+
+.header__description-text {
+    inline-size: 100%;
+    font-weight: bold;
+}
+
+.title-decor {
+    color: var(--header-text-color);
+    background: var(--main-color);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 51px;
+    padding-inline: var(--padding-size);
+}
+
+.main p {
+    color: var(--second-color);
+}
+
+@media (width > 767px) {
+    .main {
+        gap: 81px;
+    }
+}
+
+.main__section {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.main__section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main__section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main__section-inner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+@media (width > 767px) {
+    .main__section-why {
+        flex-direction: row;
+    }
+
+    .main__section-title {
+        display: block;
+        inline-size: 32%;
+        flex: 0 0 32%;
+    }
+
+    .main__section-how {
+        flex-direction: row;
+    }
+}
+
+@media (width > 1023px) {
+    .main__section-what > .main__section-list {
+        flex-direction: row;
+    }
+
+    .main__section-what li:has(.main__section-item) {
+        flex: 1 0 0;
+    }
+}
+
+.main__section-images {
+    gap: 10px;
+}
+
+.main__section-images .main__section-title {
+    inline-size: 100%;
+}
+
+.main__section-list-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (width > 767px) {
+    .main__section-images {
+        gap: 20px;
+    }
+
+    .main__section-list-images {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+                'sunset sunset ice-cream'
+                'tape books ice-cream'
+                'tape street street';
+    }
+
+    .main__section-item-image:nth-child(1) {
+        grid-area: sunset;
+    }
+
+    .main__section-item-image:nth-child(2) {
+        grid-area: ice-cream;
+    }
+
+    .main__section-item-image:nth-child(3) {
+        grid-area: tape;
+    }
+
+    .main__section-item-image:nth-child(4) {
+        grid-area: books;
+    }
+
+    .main__section-item-image:nth-child(5) {
+        grid-area: street;
+    }
+}
+
+.footer {
+    padding: 10px;
+    block-size: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__text {
+    font-size: var(--header-footer-title-size);
+    line-height: 82.5%;
+    color: var(--main-header-title-color);
+    text-shadow: 4px 4px 0 var(--main-color);
+}
